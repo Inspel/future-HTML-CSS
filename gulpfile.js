@@ -40,13 +40,13 @@ gulp.task("images", function () {
   return gulp.src("source/img/**/*.{jpg, png}")
     .pipe(imagemin([
       imagemin.optipng({optimizationLevel: 3}),
-      imagemin.jpegtran({progressive: true}),
+      imagemin.jpegtran({progressive: true})
     ]))
     .pipe(gulp.dest("source/img"));
 });
 
 gulp.task("webp", function () {
-  return gulp.src("source/img/pic-*.{png,jpg}")
+  return gulp.src("source/img/*.{png,jpg}")
     .pipe(webp({quality: 90}))
     .pipe(gulp.dest("build/img"));
 });
