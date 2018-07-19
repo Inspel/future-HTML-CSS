@@ -1,0 +1,58 @@
+.navigation {
+  position: relative;
+  z-index: 3;
+}
+
+.navigation__nav-list {
+  margin: 0;
+  padding: 0;
+  padding-left: 1px;
+  display: flex;
+  list-style: none;
+}
+
+.navigation__nav-link {
+  display: block;
+  padding: 14px 18.6px 10px;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  transition-duration: 1s;
+  background-color: @color-black;
+
+  &--myriad {
+    font-family: "Myriad Pro", Arial, sans-serif;
+  }
+
+  &:hover,
+  &:focus {
+    position: relative;
+    color: @color-black;
+    background-color: @color-pumpkin;
+
+    &::before {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 0;
+      content: "";
+      width: 10px;
+      height: 2px;
+      background-color: @color-black;
+    }
+
+    &::after {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      right: 0;
+      content: "";
+      width: 10px;
+      height: 2px;
+      background-color: @color-black;
+    }
+  }
+}
