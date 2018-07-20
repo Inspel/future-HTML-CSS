@@ -1,0 +1,78 @@
+.color-picker {
+  padding-left: 2px;
+}
+
+.color-picker__header {
+  margin-bottom: 21px;
+  font-size: 20px;
+  line-height: @line-height-auto;
+  color: @color-gray-main;
+}
+
+.color-picker__fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.color-picker__colors-list {
+  width: 474px;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  list-style: none;
+  background-image: url("../img/colors.png");
+}
+
+.color-picker__label {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+
+  .color-picker__button:hover + &,
+  .color-picker__button:focus + & {
+    outline: 1px dotted #212121;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
+  .color-picker__button:checked + &::after {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 15px;
+    width: 25px;
+    height: 15px;
+    background-color: transparent;
+    border-left: 6px solid white;
+    border-bottom: 6px solid white;
+    transform: rotate(-45deg);
+    cursor: pointer;
+  }
+}
+
+.color-picker__info {
+  margin-top: 25px;
+  margin-bottom: 47px;
+  font-size: 14px;
+  line-height: @line-height-auto;
+  color: @color-gray-main;
+}
+
+.color-picker__calculate-button {
+  margin-bottom: 10px;
+}
+
+.color-picker__get-consultation {
+  display: block;
+  font-size: 14px;
+  line-height: @line-height-auto;
+  color: #8a8a8a;
+
+  &:hover,
+  &:focus {
+    color: @color-pumpkin;
+  }
+}

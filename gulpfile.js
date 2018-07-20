@@ -6,7 +6,6 @@ let plumber = require("gulp-plumber");
 let postcss = require("gulp-postcss");
 let autoprefixer = require("autoprefixer");
 let minify = require("gulp-csso");
-let uglify = require('gulp-uglify-es').default;
 let imagemin = require("gulp-imagemin");
 let webp = require("gulp-webp");
 let rename = require("gulp-rename");
@@ -28,14 +27,6 @@ gulp.task("style", function() {
     .pipe(server.stream());
 });
 
-gulp.task("compress", function () {
-  return gulp.src("source/js/*.js")
-    .pipe(gulp.dest("build/js"))
-    // .pipe(rename('*.min.js'))
-    // .pipe(uglify())
-    // .pipe(gulp.dest("build/js"))
-});
-
 gulp.task("images", function () {
   return gulp.src("source/img/**/*.{jpg, png}")
     .pipe(imagemin([
@@ -46,7 +37,7 @@ gulp.task("images", function () {
 });
 
 gulp.task("webp", function () {
-  return gulp.src("source/img/*.{png,jpg}")
+  return gulp.src("source/img/pic-*.{png,jpg}")
     .pipe(webp({quality: 90}))
     .pipe(gulp.dest("build/img"));
 });
@@ -60,7 +51,8 @@ gulp.task("copy", function () {
   return gulp.src([
     "source/css/*.css",
     "source/fonts/*.otf",
-    "source/img/*.{jpg,png}"
+    "source/img/*.{jpg,png}",
+    "source/js/*.js"
   ], {
     base: "source"
   })
@@ -79,7 +71,6 @@ gulp.task("build", function (done) {
     "webp",
     "copy",
     "style",
-    "compress",
     done
   );
 });
@@ -94,7 +85,6 @@ gulp.task("serve", function() {
   });
 
   gulp.watch("source/less/**/*.less", ["style"]);
-  gulp.watch("source/js/*.js", ["compress"]);
   gulp.watch("source/*.html").on("change", server.reload);
   gulp.watch("source/*html", ["html"]);
 });
