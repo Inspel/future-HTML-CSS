@@ -55,6 +55,7 @@ body {
           align-items: flex-end;
 }
 .upper-block__logo {
+  width: 232px;
   margin-right: 306px;
 }
 .upper-block__calculate-price {
